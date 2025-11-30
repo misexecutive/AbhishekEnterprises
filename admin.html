@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Uniform Sample Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <div class="app-title">Uniform Sample Portal – Admin</div>
+        <div class="app-subtitle">Manage sample items & view sample requests</div>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="tab-row">
+        <button class="tab-btn active" id="tabItems">Items</button>
+        <button class="tab-btn" id="tabRequests">Requests</button>
+      </div>
+
+      <!-- ITEMS TAB -->
+      <div id="itemsTabContent">
+        <h3 class="card-title">Add New Sample Item</h3>
+        <p class="card-subtitle mt-2">
+          Upload any school uniform related item: Tie, Belt, Fabric swatch, etc.  
+          Multiple images supported for each item.
+        </p>
+
+        <form id="itemForm" class="mt-4">
+          <div class="form-group">
+            <label class="form-label" for="itemName">Item Name *</label>
+            <input type="text" id="itemName" name="itemName" class="form-input" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="itemDescription">Item Description</label>
+            <textarea id="itemDescription" name="itemDescription" class="form-textarea"
+              placeholder="Eg. Polyester tie fabric, navy blue with red stripes"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="itemImages">Item Images (Multiple allowed)</label>
+            <input
+              type="file"
+              id="itemImages"
+              name="images"
+              class="form-input"
+              accept="image/*"
+              multiple
+            />
+            <div class="form-hint">Upload fabric close-ups, full item pictures, etc.</div>
+          </div>
+
+          <button type="submit" class="btn mt-3">Save Item</button>
+          <div id="itemStatus" class="mt-2 text-sm text-muted"></div>
+        </form>
+      </div>
+
+      <!-- REQUESTS TAB -->
+      <div id="requestsTabContent" style="display:none;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Sample Requests</div>
+            <div class="card-subtitle">All sample requests placed by users</div>
+          </div>
+          <button class="btn btn-outline" id="refreshRequestsBtn">Refresh</button>
+        </div>
+
+        <div id="requestsStatus" class="text-sm text-muted mt-2"></div>
+
+        <div class="table-wrapper mt-3">
+          <table class="table" id="requestsTable">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Customer</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>Items</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Filled by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
