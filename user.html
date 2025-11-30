@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>School Uniform Samples</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <div class="app-title">School Uniform Sample Catalogue</div>
+        <div class="app-subtitle">
+          Browse fabric & item samples and request physical samples in one click.
+        </div>
+      </div>
+      <div class="app-actions">
+        <button class="cart-pill" id="openCartBtn">
+          <span>View Cart</span>
+          <span class="cart-pill-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Available Items</div>
+        <div class="card-subtitle">Tap on any item to view images and add to your sample cart.</div>
+      </div>
+
+      <div id="itemsStatus" class="text-sm text-muted mt-2"></div>
+
+      <div class="grid grid-cols-2 grid-cols-3 mt-3" id="itemsGrid">
+        <!-- Item cards via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <div>
+        <div class="card-title" style="font-size:1rem;">Your Sample Cart</div>
+        <div class="card-subtitle">Selected items for sample dispatch</div>
+      </div>
+      <button class="btn btn-outline" id="closeCartBtn">Close</button>
+    </div>
+
+    <div class="cart-items" id="cartItemsContainer">
+      <!-- Filled by JS -->
+    </div>
+
+    <form id="requestForm">
+      <div class="form-group">
+        <label class="form-label" for="custName">Your Name *</label>
+        <input type="text" id="custName" class="form-input" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="custMobile">Mobile Number *</label>
+        <input type="tel" id="custMobile" class="form-input" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="custAddress">Complete Address *</label>
+        <textarea
+          id="custAddress"
+          class="form-textarea"
+          placeholder="House No., Street, Area, City, State, PIN"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn mt-3">Request Samples</button>
+      <div id="requestStatus" class="mt-2 text-sm text-muted"></div>
+    </form>
+  </div>
+
+  <!-- IMAGE MODAL -->
+  <div class="image-modal-backdrop" id="imageModal">
+    <div class="image-modal-content">
+      <div class="close-link" id="closeImageModal">Close ✕</div>
+      <img id="modalMainImage" class="image-modal-main" src="" alt="Item image" />
+      <div class="image-modal-thumbs" id="modalThumbs"></div>
+    </div>
+  </div>
+
+  <script src="user.js"></script>
+</body>
+</html>
